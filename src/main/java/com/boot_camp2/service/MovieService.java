@@ -13,5 +13,5 @@ public interface MovieService {
 	
 	public List<MovieResponse> findAllMovies();
 
-	public  MovieResponse saveMovie(Movie movie);
+	public  MovieResponse addMovie(Movie movie);
 }
