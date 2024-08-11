@@ -40,7 +40,7 @@ public class MovieController {
 
     @PostMapping("/savemovie")
     public ResponseEntity<MovieResponse> saveMovie(Movie movie) {
-        MovieResponse movieResponse = movieService.saveMovie(movie);
+        MovieResponse movieResponse = movieService.addMovie(movie);
         return new ResponseEntity<MovieResponse>(movieResponse, HttpStatus.CREATED);
     }
 }
