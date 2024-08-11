@@ -40,4 +40,11 @@ public class MovieServiceImpl implements MovieService {
 		return movieResponse;
 	}
 
+	@Override
+	public MovieResponse saveMovie(Movie movie) {
+		Movie movie1=movieRepo.save(movie);
+		MovieResponse movieResponse=modelMapper.map(movie1,MovieResponse.class);
+		return movieResponse;
+	}
+
 }
