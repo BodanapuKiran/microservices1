@@ -16,35 +16,45 @@ import com.boot_camp2.service.MovieService;
 public class MovieServiceImpl implements MovieService {
 	@Autowired
 	MovieRepo movieRepo;
-	
+
 	@Autowired
 	ModelMapper modelMapper;
 
+	public MovieServiceImpl(MovieRepo movieRepo) {
+	}
+
 	public MovieResponse findSongDetailsBySongId(int id) {
 		Movie movieDetails = movieRepo.getSongDetailsBasedOnSongId(id);
-		MovieResponse movieResponse=modelMapper.map(movieDetails, MovieResponse.class);
+		MovieResponse movieResponse = modelMapper.map(movieDetails, MovieResponse.class);
 		return movieResponse;
 	}
 
 	@Override
 	public MovieResponse getMovieDetails(int id) {
-		Movie movie=movieRepo.getMovieDetails(id);
-		MovieResponse response=modelMapper.map(movie, MovieResponse.class);
+		Movie movie = movieRepo.getMovieDetails(id);
+		MovieResponse response = modelMapper.map(movie, MovieResponse.class);
 		return response;
 	}
 
 	@Override
 	public List<MovieResponse> findAllMovies() {
-		List<Movie> movies=movieRepo.findAll();
-	List<MovieResponse> movieResponse = Arrays.asList(modelMapper.map(movies, MovieResponse[].class));
+		List<Movie> movies = movieRepo.findAll();
+		List<MovieResponse> movieResponse = Arrays.asList(modelMapper.map(movies, MovieResponse[].class));
 		return movieResponse;
 	}
 
 	@Override
 	public MovieResponse addMovie(Movie movie) {
-		Movie movie1=movieRepo.save(movie);
-		MovieResponse movieResponse=modelMapper.map(movie1,MovieResponse.class);
+		Movie movie1 = movieRepo.save(movie);
+		MovieResponse movieResponse = modelMapper.map(movie1, MovieResponse.class);
 		return movieResponse;
 	}
+
+	@Override
+	public Movie findById(int id) {
+		Movie movie1 = movieRepo.findById(1).get();
+		return movie1;
+	}
+
 
 }
