@@ -14,4 +14,6 @@ public interface MovieService {
 	public List<MovieResponse> findAllMovies();
 
 	public  MovieResponse addMovie(Movie movie);
+
+	public Movie findById(int id);
 }
