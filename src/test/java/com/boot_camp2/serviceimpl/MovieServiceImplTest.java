@@ -38,10 +38,10 @@ class MovieServiceImplTest {
     }
 
     @Test
-    void findByIdTest() {
+    void testFindById() {
       when(movieRepo.findById(1)).thenReturn(createStubMovie());
         Movie returnedMovie=movieServiceImpl.findById(1);
-        assertEquals(returnedMovie.getHero(),"Yash");
+        assertEquals(returnedMovie.getDirector(),"Prasanthneel");
 
     }
      private Optional<Movie> createStubMovie(){
